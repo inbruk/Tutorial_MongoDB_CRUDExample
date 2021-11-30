@@ -13,8 +13,9 @@ namespace Demo
         static void Main(String[] args)
         {
             MongoCRUD crud = new MongoCRUD("AddressBook");
+            crud.InsertRecord("Users","our object");
 
-            Console.WriteLine("message");
+            // Console.WriteLine("message");
             Console.ReadLine();
         }
     }

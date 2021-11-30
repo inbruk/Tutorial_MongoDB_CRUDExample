@@ -17,6 +17,12 @@ namespace Demo
             db = client.GetDatabase(dbName);
         }
 
-        public Insert
+        public void InsertRecord<T>(String tableName, T record)
+        {
+            var collection = db.GetCollection<T>(tableName);
+            collection.InsertOne(record);
+        }
+
+
     }
 }
