@@ -13,11 +13,13 @@ namespace Demo
         public Guid Id { get; set; } // _id
         public String FirstName { set; get; }
         public String LastName { set; get; }
+        public AddressModel PrimaryAddress { set; get; }
 
-        public PersonModel(String fn, String ln)
+        public PersonModel(String fn, String ln, AddressModel pam)
         {
             FirstName = fn; 
-            LastName = ln;  
+            LastName = ln;
+            PrimaryAddress = pam;
         }
     }
 }

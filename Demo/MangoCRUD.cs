@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,17 @@ namespace Demo
             db = client.GetDatabase(dbName);
         }
 
-        public void InsertRecord<T>(String tableName, T record)
+        public void Create<T>(String tableName, T record)
         {
             var collection = db.GetCollection<T>(tableName);
             collection.InsertOne(record);
         }
 
-
+        public List<T> ReadAll<T>(String tableName)
+        {
+            var coll = db.GetCollection<T>(tableName);
+            var result = coll.Find<T>(new BsonDocument()).ToList<T>();
+            return result;
+        }
     }
 }
