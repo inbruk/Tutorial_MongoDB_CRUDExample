@@ -13,10 +13,10 @@ namespace Demo
         static void Main(String[] args)
         {
             MongoCRUD crud = new MongoCRUD("AddressBook");
-            crud.InsertRecord("Users","our object");
+            crud.InsertRecord("Users", new PersonModel("Tim", "Corey") );
 
             // Console.WriteLine("message");
-            Console.ReadLine();
+            // Console.ReadLine();
         }
     }
 }
