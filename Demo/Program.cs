@@ -13,7 +13,7 @@ namespace Demo
         static void Main(String[] args)
         {
             Console.WriteLine("message");
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 }
