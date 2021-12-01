@@ -34,17 +34,18 @@ namespace Demo
             var result = coll.Find(filter).FirstOrDefault();
             return result;
         }
-        public void Usert<T>(String tableName, Guid searchId, T rec) 
+        public void Upsert<T>(String tableName, Guid searchId, T rec) 
         {
             var coll = db.GetCollection<T>(tableName);
             var filter = Builders<T>.Filter.Eq("Id", searchId);
-            var result = coll.ReplaceOne( filter, rec, new ReplaceOptions { IsUpsert = true } );
+            // var result =
+            coll.ReplaceOne( filter, rec, new ReplaceOptions { IsUpsert = true } );
         }
-        public void Delete<T>(String tableName, Guid searchId, T rec)
+        public void Delete<T>(String tableName, Guid searchId)
         {
             var coll = db.GetCollection<T>(tableName);
             var filter = Builders<T>.Filter.Eq("Id", searchId);
-            var result = coll.DeleteOne(filter);
+            coll.DeleteOne(filter);
         }
     }
 }

@@ -11,15 +11,22 @@ namespace Demo
     {
         [BsonId]
         public Guid Id { get; set; } // _id
+
         public String FirstName { set; get; }
+
         public String LastName { set; get; }
+
         public AddressModel PrimaryAddress { set; get; }
 
-        public PersonModel(String fn, String ln, AddressModel pam)
+        [BsonElement("dob")]
+        public DateTime DateOfBirth { set; get; }
+
+        public PersonModel(String fn, String ln, AddressModel pam, DateTime dtb)
         {
             FirstName = fn; 
             LastName = ln;
             PrimaryAddress = pam;
+            DateOfBirth = dtb;
         }
     }
 }
